@@ -22,6 +22,11 @@ const routes: Array<RouteConfig> = [
     path: '/fetch-data',
     name: 'fetch-data',
     component: () => import(/* webpackChunkName: "fetch-data" */ '../views/FetchData.vue')
+  },
+  {
+    path: '/todo',
+    name: 'todo',
+    component: () => import(/* webpackChunkName: "todo" */ '../views/Todo.vue')
   }
 ]
 
