@@ -1,30 +1,32 @@
 <template>
-<div>
-    <v-text-field label="To Do"  placeholder="Write here"/>
-    <v-btn @click="addTodo" color="primary">Add item</v-btn>
-    <li v-for="item in items" v-bind:key="item">
-    <v-checkbox v-model="checkbox" :label="`Todo 1: ${checkbox.toString()}`"></v-checkbox>
+  <div>
+    <v-text-field label="To Do" v-model="toDoItem" placeholder="Write here" />
+    <v-btn @click="addTodo()" color="primary">Add item</v-btn>
+    <li v-for="(item, index) in items" v-bind:key="index">
+      <v-checkbox v-model="checkbox" :label="item"></v-checkbox>
     </li>
-</div>
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  components: {  }
+  components: {}
 })
 export default class App extends Vue {
+  items = ['']
+  checkbox = ''
+  toDoItem = ''
 
-  items = new Array<string | undefined>()
- 
-  public addTodo() : void {
-
+  public addTodo(): void {
     // Lisää arrayhin uusi checkbox element, määrittele mitä se ottaa
+      
+      this.items.push(this.toDoItem)
 
-    console.log(this.addTodo)
- }
- checkbox = "";
-
+      console.log(this.checkbox)
+      console.log(this.toDoItem)
+      console.log(this.items)
+  }
 }
 </script>
