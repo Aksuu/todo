@@ -25,19 +25,16 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import CreateItem from '@/components/CreateItem.vue'
+import Todo from '@/components/Todo.vue'
 
 @Component({
-  components: {}
+  components: { CreateItem, Todo}
 })
 export default class App extends Vue {
-  items = new Array<string>()
-  checkbox = false
-  toDoItem = ''
-
-  // beforerouteenter?
 
   get hide(): boolean {
-    if (this.items.length > 0) {
+    if (this.hide) {
       return true
     } else {
       return false
@@ -45,21 +42,11 @@ export default class App extends Vue {
   }
 
   public addTodo(): void {
-    // Lisää arrayhin uusi checkbox element, määrittele mitä se ottaa
-      this.items.push(this.toDoItem)
-      this.toDoItem = ''
-
-      console.log(this.checkbox)
-      console.log(this.toDoItem)
-  }
-
-  public checkboxClick(): void {
-  this.checkbox = true
+    this.addTodo
   }
 
   public removeTodo(index: number): void {
-    this.items.splice(index, 1)
-    console.log(this.items)
+    this.removeTodo
   }
 
   //TODO: Kirjoita stepit edit-toiminnolle! Logiikka!
@@ -69,11 +56,12 @@ export default class App extends Vue {
   // finishedit -nappi, joka tallentaa uuden arvon
   // inputille v-if, joka katsoo kummassa tilassa ollaan (edit vai ei)
   // Tee omat komponentit!
+    // Mille kaikille voi tehdä komponentit?
   // Tsekkaa dokumentit
 
     public editTodo(index: number): void {
 
-    console.log(this.items)
+    console.log()
   }
 }
 </script>
